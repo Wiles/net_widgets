@@ -9,12 +9,11 @@ local internet = {}
 local function worker(args)
   local args = args or {}
   local widget = wibox.widget.background()
-  -- Icons made by http://www.flaticon.com/authors/maxim-basinski from www.flaticon.com 
-  local ICON_DIR = awful.util.getdir("config").."/"..module_path.."/net_widgets/icons/"
+  local ICON_DIR = "/usr/share/icons/Arc/status/symbolic/"
   local yes_internet = wibox.widget {
     {
       widget = wibox.widget.imagebox,
-      image = ICON_DIR.."internet.png",
+      image = ICON_DIR.."network-wired-symbolic.svg",
       resize = false,
     },
     layout = wibox.container.margin(brightness_icon, 0, 0, 2)
@@ -22,7 +21,7 @@ local function worker(args)
   local no_internet = wibox.widget {
     {
       widget = wibox.widget.imagebox,
-      image = ICON_DIR.."internet_na.png",
+      image = ICON_DIR.."network-wired-offline-symbolic.svg",
       resize = false,
     },
     layout = wibox.container.margin(brightness_icon, 0, 0, 2)

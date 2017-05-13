@@ -13,7 +13,7 @@ local function worker(args)
     local connected = false
 
     -- Settings
-    local ICON_DIR      = awful.util.getdir("config").."/"..module_path.."/net_widgets/icons/"
+    local ICON_DIR      = "/usr/share/icons/Arc/status/symbolic/"
     local interface     = args.interface or "wlan0"
     local timeout       = args.timeout or 5
     local font          = args.font or beautiful.font
@@ -35,18 +35,18 @@ local function worker(args)
         if signal_level == nil then
             connected = false
             net_text:set_text(" N/A ")
-            net_icon:set_image(ICON_DIR.."wireless_na.png")
+            net_icon:set_image(ICON_DIR.."network-wireless-offline-symbolic.svg")
         else
             connected = true
             net_text:set_text(string.format("%"..indent.."d%%", signal_level))
             if signal_level < 25 then
-                net_icon:set_image(ICON_DIR.."wireless_0.png")
+                net_icon:set_image(ICON_DIR.."network-wireless-signal-weak-symbolic.svg")
             elseif signal_level < 50 then
-                net_icon:set_image(ICON_DIR.."wireless_1.png")
+                net_icon:set_image(ICON_DIR.."network-wireless-signal-ok-symbolic.svg")
             elseif signal_level < 75 then
-                net_icon:set_image(ICON_DIR.."wireless_2.png")
+                net_icon:set_image(ICON_DIR.."network-wireless-signal-good-symbolic.svg")
             else
-                net_icon:set_image(ICON_DIR.."wireless_3.png")
+                net_icon:set_image(ICON_DIR.."network-wireless-signal-excellent-symbolic.svg")
             end
         end
     end
@@ -54,7 +54,7 @@ local function worker(args)
     net_update()
     local timer = gears.timer.start_new( timeout, function () net_update()
       return true end )
-    
+
     widgets_table["imagebox"]	= net_icon
     widgets_table["textbox"]	= net_text
     if widget then
@@ -75,7 +75,7 @@ local function worker(args)
             local essid   = "N/A"
             local bitrate = "N/A"
             local inet    = "N/A"
-                
+
             -- Use iw/ip
             f = io.popen("iw dev "..interface.." link")
             for line in f:lines() do

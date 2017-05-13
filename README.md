@@ -11,6 +11,9 @@ Then, paste this in your 'rc.lua'
 ```Lua
 local net_widgets = require("net_widgets")
 ```
+
+Requires installing the Arc Icon set https://github.com/horst3180/arc-icon-theme
+
 ### Wireless widget.
 ![wireless widget](https://dl.dropbox.com/s/737pn4mdwv7x79g/wireless_widget.png)
 Widget is simple as hell. Icon changes depend on signal level, if you put mouse pointer on it you can see some information about current connection.
@@ -58,8 +61,8 @@ Set `popup_signal=true`.
 Just set `onclick` argument, for example
 
 ```Lua
-net_wireless = net_widgets.wireless({interface   = "wlp3s0", 
-                                     onclick     = terminal .. " -e sudo wifi-menu" }) 
+net_wireless = net_widgets.wireless({interface   = "wlp3s0",
+                                     onclick     = terminal .. " -e sudo wifi-menu" })
 ```
 
 
@@ -67,32 +70,32 @@ net_wireless = net_widgets.wireless({interface   = "wlp3s0",
 Just set `widget` argument as `false`  to get table or some widget layout to change default layout, for example
 
 ```Lua
-net_wireless = net_widgets.wireless({interface   = "wlp3s0", 
-                                     widget = false, }) 
+net_wireless = net_widgets.wireless({interface   = "wlp3s0",
+                                     widget = false, })
 ```
 
 or
 
 ```Lua
-net_wireless = net_widgets.wireless({interface   = "wlp3s0", 
-                                     widget = wibox.layout.fixed.vertical(), }) 
+net_wireless = net_widgets.wireless({interface   = "wlp3s0",
+                                     widget = wibox.layout.fixed.vertical(), })
 ```
 
 
 By default `widget = wibox.layout.fixed.horizontal()`
 
 #### Set indent in wireless textbox
-Just set `indent` 
+Just set `indent`
 ```Lua
-net_wireless = net_widgets.wireless({interface   = "wlp3s0", 
-                                     indent = 0, }) 
+net_wireless = net_widgets.wireless({interface   = "wlp3s0",
+                                     indent = 0, })
 ```
 
 or
 
 ```Lua
-net_wireless = net_widgets.wireless({interface   = "wlp3s0", 
-                                     indent = 5, }) 
+net_wireless = net_widgets.wireless({interface   = "wlp3s0",
+                                     indent = 5, })
 ```
 
 

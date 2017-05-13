@@ -13,7 +13,7 @@ local function worker(args)
   local wired_na = wibox.widget.imagebox()
   -- Settings
   local interfaces = args.interfaces or {"enp2s0"}
-  local ICON_DIR = awful.util.getdir("config").."/"..module_path.."/net_widgets/icons/"
+  local ICON_DIR = "/usr/share/icons/Arc/status/symbolic/"
   local timeout = args.timeout or 5
   local font = args.font or beautiful.font
   local onclick = args.onclick
@@ -49,8 +49,8 @@ local function worker(args)
     return msg
   end
 
-  wired:set_image(ICON_DIR.."wired.png")
-  wired_na:set_image(ICON_DIR.."wired_na.png")
+  wired:set_image(ICON_DIR.."process-completed-symbolic.svg")
+  wired_na:set_image(ICON_DIR.."process-error-symbolic.svg")
   widget:set_widget(wired_na)
   local function net_update()
     connected = false
